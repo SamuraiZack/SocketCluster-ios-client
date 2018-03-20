@@ -54,6 +54,7 @@ typedef enum _SOCKET_STATE {
 - (void)disconnect;
 
 // settings
+-(void)setJWTToken:(NSString *_Nonnull)jwtToken;
 -(void)setRestoreWaitForAuth:(BOOL)wait;
 -(void)setRestoreChannels:(BOOL)restore;
 -(void)setMinSCReconnectTime:(NSInteger)minReconnectTime;

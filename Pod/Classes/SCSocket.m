@@ -65,7 +65,7 @@
     
     [wS close];
     
-    wS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"ws://%@/?transport=websocket",url]]]];
+    wS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"ws://%@/socketcluster/",url]]]];
     
     wS.delegate = self;
     
@@ -77,7 +77,7 @@
     wS.delegate = nil;
     [wS close];
     
-    wS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"wss://%@/?transport=websocket",url]]]];
+    wS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"wss://%@/socketcluster/",url]]]];
     wS.delegate = self;
     
     
@@ -207,6 +207,10 @@
     
     [wS send:@"2"];
     
+}
+
+-(void)setJWTToken:(NSString *)jwtToken{
+    JWTToken = jwtToken;
 }
 
 #pragma mark - connection methods
